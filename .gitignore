@@ -68,3 +68,6 @@ ai_engine/risk_engine/data/processed/earthquake_susceptibility_2025.csv
 ai_engine/risk_engine/models/earthquake/earthquake_susceptibility_final.joblib
 ai_engine/risk_engine/models/earthquake/earthquake_rf_model.joblib
 ai_engine/risk_engine/models/earthquake/earthquake_rf_neighbourhood_model.joblib
+
+# Django collected static files
+staticfiles/

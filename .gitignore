@@ -1,0 +1,70 @@
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+**/node_modules/
+dist/
+build/
+.npm/
+
+# Frontend environment files
+resqmap-frontend/.env
+resqmap-frontend/.env.local
+resqmap-frontend/.env.production.local
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ML temporary files
+*.pyc
+.ipynb_checkpoints/
+
+# ChromaDB local storage
+ai_engine/knowledge_base/chroma_db/
+
+# Test and coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Large source boundary file
+ai_engine/risk_engine/data/raw/india_boundary.geojson
+
+# Raw and intermediate earthquake datasets
+ai_engine/risk_engine/data/raw/earthquake_india_2000_2025.csv
+ai_engine/risk_engine/data/raw/earthquake_india_2000_2025_with_cells.csv
+ai_engine/risk_engine/data/processed/earthquake_grid_training.csv
+ai_engine/risk_engine/data/processed/earthquake_grid_training_baseline.csv
+ai_engine/risk_engine/data/processed/earthquake_cleaned.csv
+ai_engine/risk_engine/data/processed/earthquake_india_filtered.csv
+ai_engine/risk_engine/data/processed/earthquake_susceptibility_2025.csv
+
+# Training-only earthquake models
+ai_engine/risk_engine/models/earthquake/earthquake_susceptibility_final.joblib
+ai_engine/risk_engine/models/earthquake/earthquake_rf_model.joblib
+ai_engine/risk_engine/models/earthquake/earthquake_rf_neighbourhood_model.joblib

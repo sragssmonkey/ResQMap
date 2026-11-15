@@ -8,7 +8,7 @@ import { getSavedUser } from '../services/api';
 
 import api from '../services/api';
 
-
+import 'leaflet/dist/leaflet.css';
 
 import * as L from 'leaflet';
 
@@ -520,49 +520,30 @@ export function SurvivorDashboard() {
 // ---------- Map picker ----------
 
 
-
 function MapClickHandler({ position, onLocationSelect }) {
-
   const markerIcon = L.divIcon({
-
     className: 'resqmap-marker',
-
     html: '<div style="width:22px;height:22px;background:#e45b3b;border:4px solid white;border-radius:50%;box-shadow:0 2px 8px #333"></div>',
-
     iconSize: [22, 22],
-
     iconAnchor: [11, 11],
-
   });
-
-
 
   useMapEvents({
-
     click(event) {
-
       onLocationSelect({
-
-        latitude: event.latlng.lat,
-
-        longitude: event.latlng.lng,
-
+        latitude: Number(event.latlng.lat.toFixed(6)),
+        longitude: Number(event.latlng.lng.toFixed(6)),
       });
-
     },
-
   });
 
-
-
   return position ? (
-
-    <Marker position={[position.latitude, position.longitude]} icon={markerIcon} />
-
+    <Marker
+      position={[position.latitude, position.longitude]}
+      icon={markerIcon}
+    />
   ) : null;
-
 }
-
 
 
 function MapRecenter({ position }) {
@@ -616,19 +597,12 @@ function MapPicker({ position, onLocationSelect }) {
     setLocating(true);
 
     navigator.geolocation.getCurrentPosition(
-
       (result) => {
-
         onLocationSelect({
-
-          latitude: result.coords.latitude,
-
-          longitude: result.coords.longitude,
-
+          latitude: Number(result.coords.latitude.toFixed(6)),
+          longitude: Number(result.coords.longitude.toFixed(6)),
         });
-
         setLocating(false);
-
       },
 
       (error) => {
@@ -731,7 +705,7 @@ function MapPicker({ position, onLocationSelect }) {
 
             attribution="&copy; OpenStreetMap contributors"
 
-            url="https\://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
           />
 
